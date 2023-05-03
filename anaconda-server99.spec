@@ -15,7 +15,7 @@ Server99 Anaconda Config Files
 %prep
 %build
 cat > Server99.conf <<EOF
-# Anaconda configuration file for risiOS.
+# Anaconda configuration file for Server99.
 
 [Profile]
 # Define the profile.
