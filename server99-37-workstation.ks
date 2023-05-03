@@ -5,6 +5,7 @@ repo --name="Server99" --baseurl=https://download.copr.fedorainfracloud.org/resu
 %packages
 # Server99 features/system stuff
 server99-release
+server99-logos
 
 # Removed
 -fedora-release-workstation
