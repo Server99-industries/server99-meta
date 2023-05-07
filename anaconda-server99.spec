@@ -1,6 +1,6 @@
 Summary:	Server99 Anaconda Config Files
 Name:     	anaconda-server99
-Version:	0.1
+Version:	0.2
 Release:	4%{?dist}
 License:	GPLv2+ and MIT
 URL: 		https://github.com/Server99-industries/server99-meta
