@@ -26,9 +26,9 @@ base_profile = fedora-workstation
 # Match os-release values.
 os_id = server99
 
-[Package Selection]
-# Install only the "Minimal Install" and "server" package groups.
-groups = minimal-environment, server
+[Post Installation]
+# Remove graphical user interface packages to make the system CLI-only
+chroot = /mnt/sysroot /bin/bash -c "dnf remove @gnome-desktop -y && dnf autoremove -y && systemctl set-default multi-user.target"
 
 EOF
 
