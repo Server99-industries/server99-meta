@@ -26,6 +26,10 @@ base_profile = fedora-workstation
 # Match os-release values.
 os_id = server99
 
+[Package Selection]
+# Install only the "Minimal Install" and "server" package groups.
+groups = minimal-environment, server
+
 EOF
 
 %install
