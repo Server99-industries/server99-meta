@@ -25,6 +25,9 @@ base_profile = fedora-server
 [Profile Detection]
 # Match os-release values.
 os_id = server99
+firstboot_root_password = required
+sshd_permit_root_login = yes
+can_change_users = False
 
 [Users]
 # Ignore user creation during installation.
@@ -33,6 +36,10 @@ ignored_users = root
 [Package]
 # Exclude example-package from installation.
 excludepkgs = @GNOME
+
+%packages
+-gnome-desktop
+
 
 EOF
 
