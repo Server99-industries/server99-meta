@@ -28,10 +28,10 @@ os_id = server99
 EOF
 
 cat > post-install.ks <<EOF
-echo -n "Setting default runlevel to multiuser text mode"
+echo -n "Setting default runlevel to multiuser text mode"%post
 rm -f /etc/systemd/system/default.target
 ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
-echo .
+echo . %end
 EOF
 
 %install
