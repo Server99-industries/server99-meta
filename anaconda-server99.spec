@@ -25,7 +25,6 @@ base_profile = fedora-server
 [Profile Detection]
 # Match os-release values.
 os_id = server99
-
 EOF
 
 cat > post-install.ks <<EOF
