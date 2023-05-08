@@ -26,6 +26,10 @@ base_profile = fedora-server
 # Match os-release values.
 os_id = server99
 
+[Users]
+# Ignore user creation during installation.
+ignored_users = root
+
 EOF
 
 %install
