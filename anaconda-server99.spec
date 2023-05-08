@@ -26,30 +26,26 @@ base_profile = fedora-server
 # Match os-release values.
 os_id = server99
 
+EOF
 
-[Users]
-# Ignore user creation during installation.
-ignored_users = 
-firstboot_root_password = required
-sshd_permit_root_login = yes
-can_change_users = False
-
-[Package]
-# Exclude example-package from installation.
-excludepkgs = @GNOME
-
-%packages
--gnome-desktop
-
-
+cat > post-install.ks <<EOF
+%post
+echo -n "Setting default runlevel to multiuser text mode"
+rm -f /etc/systemd/system/default.target
+ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+echo .
+%end
 EOF
 
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/anaconda/profile.d
 install -m 655 Server99.conf %{buildroot}%{_sysconfdir}/anaconda/profile.d/Server99.conf
+mkdir -p %{buildroot}%{_datadir}/anaconda/post-scripts
+install -m 655 post-install.ks %{buildroot}%{_datadir}/anaconda/post-scripts/do-something.ks
 
 %files
 %{_sysconfdir}/anaconda/profile.d/Server99.conf
+%{_datadir}/anaconda/post-scripts/do-something.ks
 
 %changelog
 * Wed May 03 2023 Core-i99
