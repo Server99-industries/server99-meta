@@ -26,10 +26,6 @@ base_profile = fedora-server
 # Match os-release values.
 os_id = server99
 
-[Post Installation]
-# Remove graphical user interface packages to make the system CLI-only
-chroot = /mnt/sysroot /bin/bash -c "rm -f /etc/systemd/system/default.target && ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target"
-
 EOF
 
 %install
