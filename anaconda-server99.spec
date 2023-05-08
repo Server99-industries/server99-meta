@@ -30,6 +30,10 @@ os_id = server99
 # Ignore user creation during installation.
 ignored_users = root
 
+[Package]
+# Exclude example-package from installation.
+excludepkgs = @GNOME
+
 EOF
 
 %install
