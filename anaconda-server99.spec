@@ -20,7 +20,7 @@ cat > Server99.conf <<EOF
 [Profile]
 # Define the profile.
 profile_id = server99
-base_profile = fedora-workstation
+base_profile = fedora-server
 
 [Profile Detection]
 # Match os-release values.
