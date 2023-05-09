@@ -8,6 +8,7 @@ URL: 		https://github.com/Server99-industries/server99-meta
 BuildArch: 	noarch
 Requires: 	anaconda
 Requires:	server99-logos
+Source0: anaconda-postinstall.ks
 
 %description
 Server99 Anaconda Config Files
@@ -27,23 +28,16 @@ base_profile = fedora-server
 os_id = server99
 EOF
 
-cat > post-install.ks <<EOF %post
-echo -n "Setting default runlevel to multiuser text mode
-rm -f /etc/systemd/system/default.target
-ln -s /lib/systemd/system/multi-user.target /etc/systemd/system/default.target
-echo . 
-%end
-EOF
-
 %install
 mkdir -p %{buildroot}%{_sysconfdir}/anaconda/profile.d
 install -m 655 Server99.conf %{buildroot}%{_sysconfdir}/anaconda/profile.d/Server99.conf
 mkdir -p %{buildroot}%{_datadir}/anaconda/post-scripts
-install -m 655 post-install.ks %{buildroot}%{_datadir}/anaconda/post-scripts/do-something.ks
+install -m 655 %{SOURCE0} %{buildroot}%{_datadir}/anaconda/post-scripts/anaconda-postinstall.ks
 
 %files
 %{_sysconfdir}/anaconda/profile.d/Server99.conf
-%{_datadir}/anaconda/post-scripts/do-something.ks
+%{_datadir}/anaconda/post-scripts/anaconda-postinstall.ks
+
 
 %changelog
 * Wed May 03 2023 Core-i99
